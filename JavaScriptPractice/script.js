@@ -146,3 +146,70 @@
 // first.classList.remove("bg-success");
 // first.classList.contains("bg-success");
 // first.classList.toggle("bg-success");
+
+//setInterval and setTimeout
+// alert("hello");
+// let a = setTimeout(function () {
+//   alert("I am timeout");
+// }, 5000);
+// clearTimeout(a);
+// console.log(a);
+// let b = prompt("do you want to run settimeout?");
+// if ("no" === b) {
+//   clearTimeout(a);
+// }
+// const sum = (a, b) => {
+//   a + b;
+//   console.log("I am running " + (a + b));
+// };
+// setTimeout(sum, 2000, 1, 2);
+// const multiply = (c, d) => {
+//   console.log("This is multiplication of " + c * d);
+//   c * d;
+// };
+// setInterval(multiply, 2000, 3, 2);
+
+//Browser Events
+// let a = document.getElementsByClassName("container")[0];
+// a.onclick = () => {
+//   let b = document.getElementsByClassName("btn")[0];
+//   b.innerHTML = "HelloWorld!";
+// };
+
+//Event Listeners
+// let a = document.getElementById("mybtn");
+// let x = function (event) {
+//   console.log(event);
+//   console.log(event.clientX, event.clientY);
+//   alert("hello earth");
+// };
+// let y = function (e) {
+//   alert("hello mars");
+// };
+// a.addEventListener("click", x);
+// a.addEventListener("click", y);
+// let z = prompt("What is your age");
+// let n = parseInt(z);
+// console.log(typeof n);
+// if (n == 2) {
+//   a.removeEventListener("click", x);
+// }
+
+//javascript chapter 8 practice
+
+// let google = document.getElementById("google");
+// google.addEventListener("click", function () {
+//   window.location = "https://google.com";
+// });
+// let ig = document.getElementById("ig");
+// ig.addEventListener("click", function () {
+//   window.location = "https://instagram.com";
+// });
+// let twitter = document.getElementById("twitter");
+// twitter.addEventListener("click", function () {
+//   window.location = "https://twitter.com";
+// });
+
+// setInterval(function () {
+//   document.querySelector("#bulb").classList.toggle("bg-warning");
+// }, 100);
