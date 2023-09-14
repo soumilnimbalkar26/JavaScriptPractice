@@ -213,3 +213,103 @@
 // setInterval(function () {
 //   document.querySelector("#bulb").classList.toggle("bg-warning");
 // }, 100);
+
+// Callbacks promises async await
+//synchronous programming
+// let a = prompt("What is your name")
+// let b = prompt("What is your age")
+// let c = prompt("What is your favourite color")
+// console.log(a +" is " + b + " years old and his favourite color is "+ c);
+
+//asynchronous programming
+// console.log("start");
+// setTimeout(function() {
+//     console.log("hey I am good");
+// },2000)
+// console.log("end");
+
+//callbacks
+// function loadScript(url, callback) {
+//   let script = document.createElement("script");
+//   script.src = url;
+//   script.onload = function () {
+//     console.log("Loaded script with src SRC: " + url);
+//     callback(url);
+//   };
+//   document.body.appendChild(script);
+// }
+
+// function hello(error, src) {
+//   if (error) {
+//     console.log(error);
+//     return;
+//   }
+//   alert("Hello World!" + src);
+// }
+
+// function goodmorning(error, src) {
+//   if (error) {
+//     console.log(error);
+//     return;
+//   }
+//   alert("Good morning" + src);
+// }
+
+// loadScript(
+//   "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js",
+//   hello
+// );
+
+//callback hell and pyramid of doom
+
+//promises
+
+// let promise = new Promise(function (resolve, reject) {
+//   alert("HelloPromise");
+//   resolve(56);
+// });
+
+// console.log("hello one");
+// setTimeout(function () {
+//   console.log("HELLLO2!");
+// }, 1000);
+// console.log("Hello3");
+// console.log(promise);
+
+//.then and .catch
+// let p1 = new Promise((resolve, reject) => {
+//   console.log("promise is pending");
+//   setTimeout(() => {
+// console.log("I am a  promise and i am fulfilled");
+//     resolve(true);
+//   }, 2000);
+// });
+// let p2 = new Promise((resolve, reject) => {
+//   console.log("promise is pending");
+//   setTimeout(() => {
+// console.log("I am a  promise and i am rejected");
+//     reject(new Error("I am an error"));
+//   }, 2000);
+// });
+
+// console.log(p1, p2);
+
+//to get the value
+// p1.then((value) => {
+//   console.log(value);
+// });
+//to catch the error
+// p2.catch((error) => {
+//   console.log("some error occurred in p2");
+// });
+
+// p2.then(
+//   (value) => {
+//     console.log(value);
+//   },
+//   (error) => {
+//     console.log(error);
+//   }
+// );
+
+//Chaining promises
