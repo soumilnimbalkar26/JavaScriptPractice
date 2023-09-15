@@ -343,11 +343,11 @@
 //     document.body.appendChild(script);
 //     script.onload = () => {
 //       resolve(1);
-    //   console.log("script loaded");
-    // };
-    // script.onerror = () => {
-    //   reject(0);
-    //   console.log("error");
+//   console.log("script loaded");
+// };
+// script.onerror = () => {
+//   reject(0);
+//   console.log("error");
 //     };
 //   });
 // };
@@ -376,3 +376,217 @@
 // })
 
 //promise API
+//promise methods
+
+// let p1 = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         resolve("value1");
+//     },11000)
+// })
+
+// let p2 = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         // resolve("value2");
+//         reject(new Error("Error"))
+//     },2000)
+// })
+
+// let p3 = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         resolve("value3");
+//     },2000)
+// })
+
+// let promise_all = Promise.all([p1,p2,p3]) //runs if all promises are resolved
+// let promise_all = Promise.allSettled([p1,p2,p3]) //runs even if any one promise is resolved
+// let promise_all = Promise.race([p1,p2,p3]) //runs the promise which is resolved first
+// let promise_all = Promise.any([p1,p2,p3]) //runs the promise but does not returns error. Instead it returns value of the resolved promise
+// promise_all.then((value)=>{
+//     console.log(value);
+// })
+
+//async await
+// async function harry() {
+//   let delhiWeather = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("27 Degrees");
+//     }, 5000);
+//   });
+//   let bangaloreWeather = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("21 Degrees");
+//     }, 10000);
+//   });
+
+//   delhiWeather.then((alert))
+//   bangaloreWeather.then((alert))
+// console.log("Fetching delhi weather please wait...");
+// let delhiW = await delhiWeather
+// console.log("delhi weather fetched " + delhiW);
+// console.log("Fetching bangalore weather please wait...");
+// let bangaloreW = await bangaloreWeather
+// console.log("bangalore weather fetched " + bangaloreW);
+
+// return[delhiW,bangaloreW]
+
+// }
+
+// const cherry = async() =>{
+//     console.log("I am waiting");
+// }
+
+// const main1 = async ()=>{
+//     console.log("welcome to the weather control");
+//     let a = await harry()
+//     let b = await cherry()
+
+// }
+
+// main1()
+
+//trycatch
+
+// setTimeout(()=>{
+//     console.log("value1");
+// },1000)
+// setTimeout(()=>{
+//     console.log("value2");
+// },2000)
+// try {
+//     console.log(number);
+// } catch (error) {
+//     console.log("error");
+// }
+// setTimeout(()=>{
+//     console.log("value3");
+// },3000)
+// setTimeout(()=>{
+//     console.log("value4");
+// },4000)
+// setTimeout(()=>{
+//     console.log("value5");
+// },5000)
+
+//error objects and custom errors
+
+// try {
+//     throw new ReferenceError("Soumil is not well")
+// } catch (error) {
+//     console.log(error.name);
+//     console.log(error.message);
+// }
+
+//try catch finally
+
+// const f=()=>{
+
+// try {
+//     let a = 0
+//     console.log(program);
+//     console.log("success");
+//     return
+// } catch (error) {
+//     console.log("this is an error");
+//     console.log(p);
+// }
+// finally{
+//     console.log("I am a good boy");
+// }
+// }
+
+// f()
+
+// console.log("end");
+
+//practice set chapter9
+
+const loadScript = async (src) => {
+  return new Promise((resolve, reject) => {
+    let script = document.createElement("script");
+    script.src = src;
+    script.onload = () => {
+      resolve(src + " done success");
+    };
+    document.head.append(script);
+  });
+};
+
+//problem1
+
+// let a = loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js")
+
+// a.then((value)=>{
+//     console.log(value);
+// })
+
+//problem2
+// const main2=async()=>{
+//     console.log(new Date().getSeconds() );
+//     let a = await loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js")
+//     console.log(a);
+//     console.log(new Date());
+
+// }
+// main2()
+
+//problem3
+
+// let p =()=>{
+//     return new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         reject(new Error("This is not acceptable"))
+//     }, 2000)
+// })
+// }
+
+// let a = async()=>{
+//     try {
+//         let c= await p()
+//         console.log(c);
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+// a()
+
+//problem 4
+let p1 = async () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(10);
+    }, 1000);
+  });
+};
+let p2 = async () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(20);
+    }, 2000);
+  });
+};
+let p3 = async () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(30);
+    }, 3000);
+  });
+};
+
+
+const run =async()=>{
+    console.time("run");
+    let a1= p1()
+    
+    let a2= p2()
+    
+    let a3= p3()
+    
+    let a1a2a3 = await Promise.all([a1, a2, a3])
+    console.log(a1a2a3);
+    // console.log(a1,a2,a3);
+    console.timeEnd("run");
+
+}
+
+run()
